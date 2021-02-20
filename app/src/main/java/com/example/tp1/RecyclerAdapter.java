@@ -1,5 +1,7 @@
 package com.example.tp1;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,47 +12,30 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import fr.uavignon.ceri.tp1.data.Country;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    private String[] nomPays = {"France",
-            "Allemagne",
-            "Japon",
-            "Afrique du Sud",
-            "Espagne",
-            "États-unis d'Amérique"};
-
-    private String[] nomCapitale = {"Paris",
-            "Dublin",
-            "Tokyo",
-            "Pretoria",
-            "Madrid",
-            "Washington DC"};
-
-    private int[] images = { R.drawable.ic_flag_of_france_320px,
-            R.drawable.ic_flag_of_germany_320px,
-            R.drawable.ic_flag_of_japan_320px,
-            R.drawable.ic_flag_of_south_africa_320px,
-            R.drawable.ic_flag_of_spain_320px,
-            R.drawable.ic_flag_of_the_united_states_320px};
-
-    @NonNull
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_layout, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.card_layout, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.itemTitle.setText(nomPays[i]);
-        viewHolder.itemDetail.setText(nomCapitale[i]);
-        viewHolder.itemImage.setImageResource(images[i]);
+        viewHolder.itemTitle.setText(Country.countries[i].getName());
+        viewHolder.itemDetail.setText(Country.countries[i].getCapital());
+        String uri = Country.countries[i].getImgUri();
+        Context c = viewHolder.itemImage.getContext();
+        viewHolder.itemImage.setImageDrawable(c.getResources().getDrawable(c.getResources().getIdentifier (uri, null , c.getPackageName())));
     }
 
     @Override
     public int getItemCount() {
-        return nomPays.length;
+        return Country.countries.length;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -76,10 +61,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
                      */
                     //// Implementation with bundle
-                    // Bundle bundle = new Bundle();
-                    // bundle.putInt("numChapter", position);
-                    // Navigation.findNavController(v).navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
-                    ListFragmentDirections.ActionFirstFragmentToSecondFragment action = ListFragmentDirections.actionFirstFragmentToSecondFragment(position);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("country_id", position);
+                    //Navigation.findNavController(v).navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
+
+                    DetailFragmentArgs detailArgs = DetailFragmentArgs.fromBundle(bundle);
+
+                    int country = detailArgs.getCountryId();
+
+                    ListFragmentDirections.ActionFirstFragmentToSecondFragment action = ListFragmentDirections.actionFirstFragmentToSecondFragment(country);
                     action.setCountryId(position);
                     Navigation.findNavController(v).navigate(action);
                 }

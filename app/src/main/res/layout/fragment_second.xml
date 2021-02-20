@@ -10,31 +10,140 @@
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="96dp"
         android:text="@string/previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/superfPays" />
 
     <TextView
-        android:id="@+id/titreNomPays"
+        android:id="@+id/nomPays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/drapeauPays"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:src="@drawable/ic_flag_of_france_320px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titreNomPays" />
+        app:layout_constraintTop_toBottomOf="@+id/nomPays" />
+
+    <TextView
+        android:id="@+id/titreCapitale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Capitale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drapeauPays" />
+
+    <TextView
+        android:id="@+id/capitalePays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/titreLangue"
+        app:layout_constraintTop_toBottomOf="@+id/drapeauPays" />
+
+    <TextView
+        android:id="@+id/titreLangue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Langue(s) officielle(s)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titreCapitale" />
+
+    <TextView
+        android:id="@+id/languePays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/titreLangue"
+        app:layout_constraintTop_toBottomOf="@+id/capitalePays" />
+
+    <TextView
+        android:id="@+id/titreMonnaie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Monnaie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titreLangue" />
+
+    <TextView
+        android:id="@+id/monnaiePays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/titreLangue"
+        app:layout_constraintTop_toBottomOf="@+id/languePays" />
+
+    <TextView
+        android:id="@+id/titrePop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Population"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titreMonnaie" />
+
+    <TextView
+        android:id="@+id/popPays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/titreLangue"
+        app:layout_constraintTop_toBottomOf="@+id/monnaiePays" />
+
+    <TextView
+        android:id="@+id/titreSuperf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Superficie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titrePop" />
+
+    <TextView
+        android:id="@+id/superfPays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/titreLangue"
+        app:layout_constraintTop_toBottomOf="@+id/popPays" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
